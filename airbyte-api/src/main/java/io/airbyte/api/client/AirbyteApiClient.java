@@ -18,6 +18,9 @@ import io.airbyte.api.client.invoker.ApiClient;
  *
  * This is currently manually maintained. We could look into autogenerating it if needed.
  */
+// I initially was struggling because I thought API client parsed the datatype information (there's still a chance it
+// does) and this was bad because these files are not editable in this project. They are built remotely and accessed through
+// the docker container
 public class AirbyteApiClient {
 
   private final ConnectionApi connectionApi;

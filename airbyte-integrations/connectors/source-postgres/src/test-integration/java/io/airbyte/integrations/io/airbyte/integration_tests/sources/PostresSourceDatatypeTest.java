@@ -202,7 +202,10 @@ public class PostresSourceDatatypeTest extends AbstractSourceDatabaseTypeTest {
             .addExpectedValues(null, "192.168.100.128/25", "192.168.0.0/24", "192.168.1.0/24",
                 "128.1.0.0/16", "2001:4f8:3:ba::/64")
             .build());
-
+    // This is the test I was originally wanting o change in order to check that it was being saved as a data rather
+    // a string.  As you can see the date is saved in as a date in a string format.  This makes me think the current
+    // state was intentional as they did test for it to be a string. Additionally, since it is saved in a DateTime format
+    // the user could run an SQL command to change this column to an actual date type pretty easily.
     // JdbcUtils-> DATE_FORMAT is set as ""yyyy-MM-dd'T'HH:mm:ss'Z'"" so it doesnt suppose to handle BC
     // dates
     addDataTypeTestData(

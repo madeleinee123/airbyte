@@ -96,6 +96,7 @@ public class DatabaseConfigPersistence implements ConfigPersistence {
   @Override
   public <T> T getConfig(final AirbyteConfig configType, final String configId, final Class<T> clazz)
       throws ConfigNotFoundException, JsonValidationException, IOException {
+    // This seems to be where the json schema comes from.  I can't figure out how it get's savve to the database.
     final Result<Record> result = database.query(ctx -> ctx.select(asterisk())
         .from(AIRBYTE_CONFIGS)
         .where(AIRBYTE_CONFIGS.CONFIG_TYPE.eq(configType.name()), AIRBYTE_CONFIGS.CONFIG_ID.eq(configId))

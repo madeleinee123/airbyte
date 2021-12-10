@@ -32,6 +32,8 @@ const CreateSourcePage: React.FC = () => {
   );
   const { createSource } = useSource();
 
+  // I did a lot of debugging in this method because I am sure this is where the creation AirbyteCatalog (what describes
+  // the data types) is set into motion
   const onSubmitSourceStep = async (values: {
     name: string;
     serviceType: string;

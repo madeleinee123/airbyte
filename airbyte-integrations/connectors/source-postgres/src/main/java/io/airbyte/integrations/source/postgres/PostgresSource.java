@@ -56,6 +56,8 @@ public class PostgresSource extends AbstractJdbcSource implements Source {
     return new SshWrappedSource(new PostgresSource(), List.of("host"), List.of("port"));
   }
 
+  // I was sure that this was used in the creation of a Postgres source but when ever I would put print statements
+  // in this file, they would not be printed in the terminal.  I really don't understand why.
   PostgresSource() {
     super(DRIVER_CLASS, new PostgresJdbcStreamingQueryConfiguration());
     this.sourceOperations = JdbcUtils.getDefaultSourceOperations();
